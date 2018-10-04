@@ -15,7 +15,7 @@ class Billboard extends React.Component {
   handleSelectNewImage() {
     this.setState(
       {
-        currentImage: sample(range(1, 7))
+        currentImage: sample(range(1, 14))
       },
       () => {
         setTimeout(() => {

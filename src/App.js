@@ -38,7 +38,7 @@ class App extends Component<Props, State> {
         },
         () => this.incrementCount()
       );
-    }, 5000);
+    }, 6000);
   }
 
   render() {

@@ -96,7 +96,7 @@ body {
   bottom: -10%;
   width: 430px;
   height: 300px;
-  animation: driving 5s infinite linear;
+  animation: driving 6s infinite linear;
   transform: scale(0.5);
 }
 .car-container:after {
@@ -114,10 +114,10 @@ body {
 .car-aaron {
   background: url(/images/stickAaron.png) no-repeat center;
   background-size: contain;
-  width: 200px;
-  height: 200px;
+  width: 230px;
+  height: 230px;
   position: absolute;
-  top: -100px;
+  top: -128px;
   left: -100px;
 }
 /*   WHEELS   */
