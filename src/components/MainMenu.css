@@ -1,0 +1,86 @@
+@import url(https://fonts.googleapis.com/css?family=Permanent+Marker);
+
+body {
+  background-color: black;
+  overflow: hidden;
+}
+
+.center-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: calc(33vh - 20px);
+  grid-template-areas:
+    ". . ."
+    ". a ."
+    ". . .";
+}
+
+.center-contents {
+  cursor: pointer;
+  grid-area: a;
+  align-self: center;
+  justify-self: center;
+}
+
+.center-container-zoomed {
+  cursor: default;
+  transform: scale(2);
+  transition: all 14s;
+}
+
+.triangle {
+  fill: transparent;
+
+  animation-name: spin;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  transform-origin: 50% 65%;
+}
+
+.center-container-zoomed .triangle {
+  animation-duration: 2s;
+  transition: all 1s;
+  animation-timing-function: linear;
+}
+
+.triangle-loading {
+  animation-duration: 1s;
+  animation-timing-function: linear;
+}
+
+#triangle-1 {
+  stroke: #fd55f8;
+}
+
+#triangle-2 {
+  stroke: #fb91f7;
+  animation-delay: 0.05s;
+}
+#triangle-3 {
+  stroke: #fbbef8;
+  animation-delay: 0.1s;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#spin-text {
+  position: relative;
+  font-family: "Permanent Marker", cursive;
+  font-variant: small-caps;
+  font-size: 90px;
+  -webkit-transform: skew(-15deg, -15deg);
+  background-image: -webkit-linear-gradient(#ff0ff8 0%, #f9f9f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  -webkit-filter: drop-shadow(2px 2px 20px #f008b7);
+}

@@ -1,0 +1,20 @@
+.building-billboard {
+  background: url(/images/billboard.png) center no-repeat;
+  background-size: contain;
+  width: 280px;
+  height: 280px;
+  position: absolute;
+  top: -240px;
+  left: -45px;
+  z-index: -10;
+}
+
+.building-billboard-viewer {
+  background: url(/images/1.gif) center no-repeat black;
+  background-size: cover;
+  width: 254px;
+  height: 149px;
+  position: absolute;
+  top: 50px;
+  left: 13px;
+}

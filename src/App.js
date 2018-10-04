@@ -1,19 +1,56 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+// @flow
+import React, { Component } from "react";
+import "./App.css";
+import MainMenu from "./components/MainMenu";
+import MusicVideo from "./components/MusicVideo";
+import Song from "./components/Song";
 
-class App extends Component {
+type Props = {};
+type State = {
+  playState: string,
+  count: number
+};
+
+class App extends Component<Props, State> {
+  state = {
+    playState: "main",
+    count: 0
+  };
+
+  handleStart = () => {
+    this.setState({
+      playState: "intro"
+    });
+
+    setTimeout(() => {
+      this.setState({
+        playState: "play"
+      });
+      this.incrementCount();
+    }, 14.3 * 1000);
+  };
+
+  incrementCount() {
+    setTimeout(() => {
+      this.setState(
+        {
+          count: this.state.count + 1
+        },
+        () => this.incrementCount()
+      );
+    }, 5000);
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <React.Fragment>
+        {this.state.playState !== "main" && <Song />}
+        {this.state.playState === "play" ? (
+          <MusicVideo count={this.state.count} />
+        ) : (
+          <MainMenu onStart={this.handleStart} playState={this.state.playState} />
+        )}
+      </React.Fragment>
     );
   }
 }
